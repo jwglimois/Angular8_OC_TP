@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Post } from './post';
+
 
 @Component({
   selector: 'app-post-list',
@@ -6,35 +8,41 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
+  post1: Post = new Post('Mon premier post', 
+  'Juste au-dessus de Menton, Castillon se classe haut la main parmi'
+  + "les sites majeurs des Alpes-Maritimes. On y trouve un rocher d\'une raideur"
+  + " et d\'une"
+  + " qualité exceptionnelles",
+  0,
+  new Date());
 
-  @Input() postTitle: string;
-  @Input() postContent: string;
-  @Input() postLoveIts: number;
-  @Input() postCreateAt: Date;
+  post2: Post = new Post('Mon deuxième post', 
+  'Juste au-dessus de Menton, Castillon se classe haut la main parmi'
+  + "les sites majeurs des Alpes-Maritimes. On y trouve un rocher d\'une raideur"
+  + " et d\'une"
+  + " qualité exceptionnelles",
+  0,
+  new Date());
 
+  post3: Post = new Post('Encore un post', 
+  'Juste au-dessus de Menton, Castillon se classe haut la main parmi'
+  + "les sites majeurs des Alpes-Maritimes. On y trouve un rocher d\'une raideur"
+  + " et d\'une"
+  + " qualité exceptionnelles",
+  0,
+  new Date());
 
+  posts = [
+    this.post1,
+    this.post2,
+    this.post3
+  ]
+
+ 
   constructor() { }
 
   ngOnInit() {
   }
 
-
-  onClickOnBtnLoveIt() {
-    this.postLoveIts++;
-  }
-
-  onClickOnBtnDontLoveIt() {
-    this.postLoveIts--;
-  }
-
-  getColor() {
-    if (this.postLoveIts > 0) {
-      return 'green';
-    } else if (this.postLoveIts < 0) {
-      return 'red';
-    } else {
-      return 'black';
-    }
-  }
-
+  
 }
